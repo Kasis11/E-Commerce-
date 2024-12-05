@@ -1,0 +1,88 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title> Change Password form </title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} " type="text/css" media="all" />
+
+</head>
+
+<body>
+    <div class="w3l-loginblock signinform">
+        
+        <!-- main content -->
+            <section class="vh- gradient-custom">
+                <div class="container py-3 h-50">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+              
+                          <div class="mb-md-5 mt-md-4 pb-5">
+              
+                            <h2 class="fw-bold mb-2 text-uppercase">Change Password</h2>
+                        <form  method="post" class="">
+                            {% csrf_token %}
+                            <div class="form-grid">
+                                
+                            <div class="input-field" style="text-align: left;">
+                                <label > Old Password </label>
+                                <input type="password" name="oldpass" class="form-control form-control-lg" id="email" placeholder="Enter Old Password" required="">
+                            </div>
+                            <div class="input-field" style="text-align: left;">
+                                <label > New Password Password</label>
+                                <input type="password" name="newpass" class="form-control form-control-lg" id="Password" placeholder="Enter New Password Password" required="">
+                            </div>
+                            <div class="input-field" style="text-align: left;">
+                                <label> Re-Enter  New Password </label>
+                                <input type="password" name="newpass1" class="form-control form-control-lg" id="Password" placeholder="Re-Enter  New Password" required="">
+                            </div>
+                        </div>
+                    <div id="btn" style="padding: 30px;">
+                        <button type="submit" style="background-color: rgb(247, 137, 137);" class="btn btn-outline-light btn-lg px-5">submit</button>
+                    </div>   
+                    </form>
+                </div>
+                
+            </div>
+        <!-- //main content -->
+        {% if message %}<script>alert("{{message}}")</script>{% endif %}
+        
+    </div>
+
+    <!-- fontawesome v5-->
+    <script src="{% static 'js/fontawesome.js' %} "></script>
+
+</body>
+
+</html>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

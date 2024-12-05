@@ -1,0 +1,87 @@
+
+
+{% extends 'common.html' %}
+
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title> login form </title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} " type="text/css" media="all" />
+
+</head>
+
+<body>
+<section class="vh- gradient-custom">
+    <div class="container py-3 h-30">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-10 mt-md-2 pb-6">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="text-white-50 mb-5">Please enter your login and password!</p>
+            <form  method="post" class="">
+                {% csrf_token %}
+                <div class="form-grid">
+                    <div class="input-field" style="text-align: left;">
+                        <label style="text-align: left;"> Username or Email </label>
+                        <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="Username or Email" required="">
+                    </div>
+                    <div class="input-field" style="text-align: left;">
+                        <label> Password</label>
+                        <input type="password" name="password" class="form-control form-control-lg" id="Password" placeholder="Password" required="">
+                    </div>
+                </div>
+
+                <p class="mb-5 pb-lg-1"><a href="{% url 'forgot' %}" class="text-white-50 fw-bold">Forgot password?</a></p>
+
+                
+                <button type="submit" style="background-color: rgb(247, 137, 137);" class="btn btn-outline-light btn-lg px-5">Login now</button>
+            </form>
+                <br>
+                <p>Login with</p>
+                <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                  
+                  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                </div>
+                <div>
+                  <p class="mb-0">Don't have an account? <a href="{% url 'register1' %}" class="text-white-50 fw-bold">Register</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if message %}<script>alert("{{message}}")</script>{% endif %}
+    </div>
+  </section>
+
+      <!-- fontawesome v5-->
+      <script src="{% static 'js/fontawesome.js' %} "></script>
+
+    </body>
+    
+    </html>
+    
+    {% endblock %}
+
+
